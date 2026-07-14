@@ -818,7 +818,7 @@ section#screen-trusted {
 }
 @media (min-width: 1440px) {
   .back-btn {
-    left: 50px;
+    left: 13%;
   }
 }
 @media (max-width: 1440px) {
