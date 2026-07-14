@@ -489,7 +489,7 @@ header .logo {
 .meter-dot {
   position: absolute;
   top: 50%;
-  left: 92%;
+  left: 89%;
   transform: translate(-50%, -50%);
   width: 25px;
   height: 25px;
@@ -501,7 +501,7 @@ header .logo {
 .meter-flag {
   position: absolute;
   bottom: 54px;
-  left: 92%;
+  left: 89%;
   transform: translateX(-50%);
   background: #17181a;
   color: #fff;
@@ -533,7 +533,7 @@ header .logo {
     left: 0%;
   }
   to {
-    left: 92%;
+    left: 89%;
   }
 }
 
