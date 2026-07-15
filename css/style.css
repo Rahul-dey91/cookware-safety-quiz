@@ -80,6 +80,9 @@ header .logo {
   width: 20px;
   height: 20px;
 }
+#screen-intro {
+  max-width: 100%;
+}
 .screen {
   display: none;
   max-width: 800px;
