@@ -92,7 +92,6 @@ header .logo {
 }
 .screen:not(#screen-intro) {
   animation: fadeLeft 0.25s ease;
-  max-width: 1000px;
 }
 .product-video {
   max-width: 800px;
@@ -946,6 +945,9 @@ section#screen-trusted {
   }
   #screen-intro .btn-primary::before {
     content: none; /* removes the pseudo-element entirely */
+  }
+  .card img {
+    width: 100%;
   }
   @keyframes fadeLeft {
     from {

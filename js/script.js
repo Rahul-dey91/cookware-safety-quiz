@@ -385,5 +385,25 @@ window.addEventListener("load", function () {
 
   var initial = FLOW.indexOf(location.hash.slice(1));
   show(initial >= 0 ? initial : 0);
-});
 
+  //back button otherbitton logic
+
+  document.getElementById("backBtn").addEventListener(
+    "click",
+    function (e) {
+      const isOtherSelected = document.querySelector(
+        'input[name="cookware"][value="Other"]',
+      )?.checked;
+      const currentScreen = document.querySelector(".screen.active")?.id;
+
+      if (isOtherSelected && currentScreen === "screen-cook-for") {
+        e.preventDefault();
+        e.stopImmediatePropagation(); // stop the default backBtn -> history.back() from also firing
+
+        const targetIndex = FLOW.indexOf("cookware");
+        if (targetIndex !== -1) show(targetIndex);
+      }
+    },
+    true,
+  );
+});
