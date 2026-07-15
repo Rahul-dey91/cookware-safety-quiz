@@ -323,8 +323,7 @@ window.addEventListener("load", function () {
 
     document.getElementById("submitTitle").textContent =
       "Applying Your $310 Discount…";
-
-    ctaBtn.hidden = true;
+    ctaBtn.classList.add("d-none");
   }
 
   function stopSubmit() {
@@ -345,7 +344,7 @@ window.addEventListener("load", function () {
     document.getElementById("submitTitle").textContent =
       "Your $310 Discount Is Ready";
 
-    ctaBtn.hidden = false;
+    ctaBtn.classList.remove("d-none");
     ctaBtn.focus();
   }
 

@@ -800,6 +800,9 @@ section#screen-trusted {
 .status-indicator .icon-spinner {
   display: none;
 }
+.d-none {
+  display: none;
+}
 /* 3. Animation to "draw" the checkmark */
 @keyframes checkmark {
   0% {
