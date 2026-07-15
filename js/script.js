@@ -149,15 +149,15 @@ window.addEventListener("load", function () {
   }
 
   // Add this to your script.js or a script tag
-  document
-    .querySelector('label.card input[value="Other"]')
-    .addEventListener("click", function () {
-      // Wait for the default logic to run, then override
-      setTimeout(() => {
-        const targetIndex = FLOW.indexOf("cook-for");
-        if (targetIndex !== -1) show(targetIndex);
-      }, 200);
-    });
+  // document
+  //   .querySelector('label.card input[value="Other"]')
+  //   .addEventListener("click", function () {
+  //     // Wait for the default logic to run, then override
+  //     setTimeout(() => {
+  //       const targetIndex = FLOW.indexOf("cook-for");
+  //       if (targetIndex !== -1) show(targetIndex);
+  //     }, 200);
+  //   });
 
   /*function back() {
     show(current + 1);
@@ -175,6 +175,28 @@ window.addEventListener("load", function () {
     var auto = group.dataset.auto === "true";
     var key = group.dataset.question;
 
+    // group.addEventListener("click", function (e) {
+    //   var input = e.target;
+
+    //   if (input.type === "radio") {
+    //     group.querySelectorAll(".option, .card").forEach(function (el) {
+    //       el.classList.toggle("selected", el.contains(input) && input.checked);
+    //     });
+
+    //     answers[key] = input.value;
+
+    //     if (auto) setTimeout(next, 180);
+    //   } else {
+    //     input.closest(".option").classList.toggle("selected", input.checked);
+
+    //     answers[key] = Array.prototype.map.call(
+    //       group.querySelectorAll("input:checked"),
+    //       function (i) {
+    //         return i.value;
+    //       },
+    //     );
+    //   }
+    // });
     group.addEventListener("click", function (e) {
       var input = e.target;
 
@@ -185,7 +207,17 @@ window.addEventListener("load", function () {
 
         answers[key] = input.value;
 
-        if (auto) setTimeout(next, 180);
+        if (auto) {
+          setTimeout(function () {
+            // Special case: cookware "Other" skips straight to cook-for
+            if (key === "cookware" && input.value === "Other") {
+              var targetIndex = FLOW.indexOf("cook-for");
+              if (targetIndex !== -1) show(targetIndex);
+            } else {
+              next();
+            }
+          }, 180);
+        }
       } else {
         input.closest(".option").classList.toggle("selected", input.checked);
 
