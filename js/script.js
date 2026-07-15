@@ -379,8 +379,35 @@ window.addEventListener("load", function () {
     runProgressBar(rows, 0, runId);
   }
 
+  // ctaBtn.addEventListener("click", function () {
+  //   window.location.href = PRODUCT_URL;
+  // });
   ctaBtn.addEventListener("click", function () {
-    window.location.href = PRODUCT_URL;
+    const statusIndicator = document.querySelector(".status-indicator");
+    const spinner = statusIndicator.querySelector(".icon-spinner");
+    const check = statusIndicator.querySelector(".icon-check-mark");
+    const cross = statusIndicator.querySelector(".icon-x-mark");
+
+    // reset: hide all, then show spinner
+    check.style.display = "none";
+    cross.style.display = "none";
+    spinner.style.display = "block";
+    ctaBtn.disabled = true; // optional, prevents double-clicks while waiting
+
+    setTimeout(function () {
+      const hasError = false; // <-- replace with your real error check
+
+      spinner.style.display = "none";
+
+      if (hasError) {
+        cross.style.display = "block";
+        ctaBtn.disabled = false; // allow retry
+        return;
+      }
+
+      check.style.display = "block";
+      window.location.href = PRODUCT_URL;
+    }, 2000);
   });
 
   var initial = FLOW.indexOf(location.hash.slice(1));

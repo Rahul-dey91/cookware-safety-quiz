@@ -82,7 +82,7 @@ header .logo {
 }
 .screen {
   display: none;
-  max-width: 100%;
+  max-width: 800px;
   margin: 0 auto;
   animation: fadeIn 0.25s ease;
 }
@@ -792,7 +792,14 @@ section#screen-trusted {
   transform: scaleX(-1) rotate(135deg);
   animation: checkmark 800ms ease;
 }
-
+#ctaBtn {
+  display: flex;
+}
+.status-indicator .icon-check-mark,
+.status-indicator .icon-x-mark,
+.status-indicator .icon-spinner {
+  display: none;
+}
 /* 3. Animation to "draw" the checkmark */
 @keyframes checkmark {
   0% {
