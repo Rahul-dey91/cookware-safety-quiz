@@ -64,14 +64,14 @@ header .logo {
   transform: translateY(-50%);
   display: none;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   background: none;
   border: 0;
   cursor: pointer;
   font-family: inherit;
   font-size: 16px;
   font-weight: 600;
-  color: #33383f;
+  color: #505051;
 }
 .back-btn.visible {
   display: flex;
@@ -80,7 +80,6 @@ header .logo {
   width: 20px;
   height: 20px;
 }
-
 .screen {
   display: none;
   max-width: 100%;
@@ -165,11 +164,13 @@ header .logo {
   font-weight: 700;
 }
 .hint {
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 400;
   text-align: center;
   color: var(--muted);
-  margin: -8px 0 22px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+  color: #505051;
 }
 .copy {
   font-size: 1rem;
@@ -191,7 +192,7 @@ header .logo {
   position: relative;
   display: block;
   cursor: pointer;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.3);
   border: 2px solid var(--card-border);
   border-radius: var(--radius);
   padding: 14px;
