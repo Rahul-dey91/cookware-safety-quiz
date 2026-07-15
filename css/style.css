@@ -90,10 +90,9 @@ header .logo {
 .screen.active {
   display: block;
 }
-#screen-why-fails,
-#screen-recommendation {
+.screen:not(#screen-intro) {
   animation: fadeLeft 0.25s ease;
-  max-width: 800px;
+  max-width: 1000px;
 }
 .product-video {
   max-width: 800px;
@@ -121,7 +120,7 @@ header .logo {
 @keyframes fadeLeft {
   from {
     opacity: 0;
-    transform: translatex(6px);
+    transform: translateX(15px);
   }
   to {
     opacity: 1;
@@ -198,10 +197,10 @@ header .logo {
   border-radius: var(--radius);
   padding: 14px;
   font-size: 16px;
-  /* transition:
+  transition:
     border-color 0.12s,
     box-shadow 0.12s,
-    transform 0.12s; */
+    transform 0.12s;
   user-select: none;
   color: #0a0908;
   font-weight: 700;
@@ -211,20 +210,18 @@ header .logo {
   opacity: 0;
   pointer-events: none;
 }
-.option:hover {
+/* Style based on the hidden checkbox state */
+.option:has(input:checked) {
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
   border-color: var(--primary);
-  color: var(--white);
-  background-color: var(--primary);
 }
-.option.selected {
-  border-color: var(--primary);
+
+/* Hover effect only for unselected items */
+.option:hover:not(:has(input:checked)) {
+  background-color: var(--primary); /* Subtle hover */
   color: var(--white);
-  background-color: var(--primary);
-}
-.option:focus-within {
   border-color: var(--primary);
-  color: var(--white);
-  background-color: var(--primary);
 }
 
 /* Image card grid */
@@ -889,9 +886,6 @@ section#screen-trusted {
     font-size: 16px;
     line-height: 23px;
   }
-  .btn-primary {
-    font-size: 20px;
-  }
   .meter-labels {
     font-size: 15px;
     line-height: 15px;
@@ -920,7 +914,8 @@ section#screen-trusted {
   #screen-trusted .screen-img {
     width: 100% !important;
   }
-  #ctaBtn {
+  #ctaBtn,
+  .btn-primary {
     font-size: 16px;
   }
   .progress-wrap {
@@ -928,7 +923,7 @@ section#screen-trusted {
   }
   .btn-primary {
     position: relative;
-    margin-top: 34px;
+    margin-top: 0;
   }
   .btn-primary::before {
     content: "";
@@ -951,5 +946,15 @@ section#screen-trusted {
   }
   #screen-intro .btn-primary::before {
     content: none; /* removes the pseudo-element entirely */
+  }
+  @keyframes fadeLeft {
+    from {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
