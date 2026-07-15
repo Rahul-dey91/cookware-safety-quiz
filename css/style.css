@@ -801,7 +801,7 @@ section#screen-trusted {
   display: none;
 }
 .d-none {
-  display: none;
+  display: none !important;
 }
 /* 3. Animation to "draw" the checkmark */
 @keyframes checkmark {
